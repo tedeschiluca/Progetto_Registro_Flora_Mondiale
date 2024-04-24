@@ -13,3 +13,5 @@ Progetto_Registro_Flora_Mondiale
 -Una classe che permette di cercare le piante per nome o per tipologia (fiore, albero, muschio, ecc)
 
 - *da valuare* prestabilendo una vita media di una pianta, calcolare i possibili anni rimanenti di vita.
+
+La classe Pianta deve contenere un idPianta (long) e una data (LocalDate) per esempio la data in cui è stata classificata o altro
