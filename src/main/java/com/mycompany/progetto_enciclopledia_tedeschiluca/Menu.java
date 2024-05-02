@@ -31,6 +31,9 @@ public class Menu {
             System.out.println("2. Rimuovi pianta");
             System.out.println("3. Visualizza tutte le piante");
             System.out.println("4. Visualizza una pianta in una posizione specifica");
+            System.out.println("5. Esporta i dati su un file CSV:");
+            System.out.println("6. Importa i dati da un file CSV:");
+            
             System.out.println("0. Esci");
 
             System.out.print("\nScelta: ");
@@ -49,6 +52,16 @@ public class Menu {
                     break;
                 case 4:
                     visualizzaPiantaPosizione();
+                    break;
+                case 5:
+                    System.out.print("Inserisci il nome del file CSV di destinazione: ");
+                    String exportFileName = scanner.nextLine();
+                    SalvaSuFile.EsportaSuCsv(listaPiante, exportFileName);
+                    break;
+                case 6:
+                    System.out.print("Inserisci il nome del file CSV di origine: ");
+                    String importFileName = scanner.nextLine();
+                    listaPiante = SalvaSuFile.ImportaSuCsv(importFileName);
                     break;
                 case 0:
                     System.out.println("Arrivederci!");

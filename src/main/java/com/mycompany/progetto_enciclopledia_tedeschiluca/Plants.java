@@ -52,7 +52,7 @@ public class Plants {
         return caratteristicheGenerali;
     }
     
-    public int anniPianta()
+    public int getAnniPianta()
     {
         return anniPianta;
     }
