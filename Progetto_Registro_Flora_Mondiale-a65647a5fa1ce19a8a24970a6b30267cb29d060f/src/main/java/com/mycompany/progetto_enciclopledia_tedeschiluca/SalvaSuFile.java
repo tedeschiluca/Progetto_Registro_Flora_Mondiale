@@ -7,6 +7,8 @@ package com.mycompany.progetto_enciclopledia_tedeschiluca;
 
 import java.util.Scanner;
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,10 @@ import java.util.List;
 public class SalvaSuFile {
     
     public static void EsportaSuCsv(List<Plants> plants, String fileName) {
+        
+        LocalDateTime now = LocalDateTime.now();
+        String oraEsportazione = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        
         try (PrintWriter writer = new PrintWriter(new File(fileName))) {
             StringBuilder sb = new StringBuilder();
             sb.append("Nome, Nome Scientifico, Area di Crescita, Caratteristiche Generali, Anni della Pianta");
@@ -33,12 +39,17 @@ public class SalvaSuFile {
 
             writer.write(sb.toString());
             System.out.println("Dati esportati con successo su " + fileName);
+            System.out.println("Dati esportati su file CSV '" + fileName + "' all'ora: " + oraEsportazione);
         } catch (FileNotFoundException e) {
             System.out.println("Errore: file non trovato");
         }
     }
 
     public static List<Plants> ImportaSuCsv(String fileName) {
+        
+        LocalDateTime now = LocalDateTime.now();
+        String oraImportazione = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        
         List<Plants> plants = new ArrayList<>();
         try (Scanner scanner = new Scanner(new File(fileName))) {
             scanner.nextLine(); // Skip header
@@ -49,6 +60,7 @@ public class SalvaSuFile {
                 plants.add(plant);
             }
             System.out.println("Dati importati con successo da " + fileName);
+            System.out.println("Dati importati dal file CSV '" + fileName + "' all'ora: " + oraImportazione);
         } catch (FileNotFoundException e) {
             System.out.println("Errore: file non trovato");
         }

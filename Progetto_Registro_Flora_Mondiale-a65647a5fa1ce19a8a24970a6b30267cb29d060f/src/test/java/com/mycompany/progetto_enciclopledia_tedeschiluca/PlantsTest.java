@@ -3,95 +3,56 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
 package com.mycompany.progetto_enciclopledia_tedeschiluca;
-
-import Eccezioni.PlantException;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author Studente
- */
 public class PlantsTest {
-    
-    public PlantsTest() {
+
+    @Test
+    public void testAggiungiPianta() {
+        List<Plants> listaPiante = new ArrayList<>();
+        Plants pianta = new Plants("Pianta1", "Scientifico1", "Area1", "Caratteristiche1", 5);
         
-    }
-
-    @Test
-    public void testGetNome() 
-    {
+        // Aggiungi la pianta alla lista
+        listaPiante.add(pianta);
         
+        // Verifica che la lista contenga la pianta aggiunta
+        assertEquals(1, listaPiante.size());
+        assertEquals("Pianta1", listaPiante.get(0).getNome());
     }
 
-    /**
-     * Test of getNomeScientifico method, of class plants.
-     */
     @Test
-    public void testGetNomeScientifico() {
+    public void testRimuoviPianta() {
+        List<Plants> listaPiante = new ArrayList<>();
+        Plants pianta = new Plants("Pianta1", "Scientifico1", "Area1", "Caratteristiche1", 5);
+        listaPiante.add(pianta);
+        
+        // Rimuovi la pianta dalla lista
+        listaPiante.remove(0);
+        
+        // Verifica che la lista sia vuota dopo la rimozione
+        assertTrue(listaPiante.isEmpty());
     }
 
-    /**
-     * Test of getAreaDiCrescita method, of class plants.
-     */
     @Test
-    public void testGetAreaDiCrescita() {
+    public void testVisualizzaTuttePiante() {
+        List<Plants> listaPiante = new ArrayList<>();
+        Plants pianta1 = new Plants("Pianta1", "Scientifico1", "Area1", "Caratteristiche1", 5);
+        Plants pianta2 = new Plants("Pianta2", "Scientifico2", "Area2", "Caratteristiche2", 3);
+        Plants pianta3 = new Plants("Pianta3", "Scientifico3", "Area3", "Caratteristiche3", 7);
+        
+        listaPiante.add(pianta1);
+        listaPiante.add(pianta2);
+        listaPiante.add(pianta3);
+        
+        // Verifica che la lista contenga tutte le piante aggiunte
+        assertEquals(3, listaPiante.size());
+        assertEquals("Pianta1", listaPiante.get(0).getNome());
+        assertEquals("Pianta2", listaPiante.get(1).getNome());
+        assertEquals("Pianta3", listaPiante.get(2).getNome());
     }
 
-    /**
-     * Test of getCaratteristicheGenerali method, of class plants.
-     */
-    @Test
-    public void testGetCaratteristicheGenerali() {
-    }
-
-    /**
-     * Test of anniPianta method, of class plants.
-     */
-    @Test
-    public void testAnniPianta() {
-    }
-
-    /**
-     * Test of setNome method, of class plants.
-     */
-    @Test
-    public void testSetNome() {
-    }
-
-    /**
-     * Test of setNomeScientifico method, of class plants.
-     */
-    @Test
-    public void testSetNomeScientifico() {
-    }
-
-    /**
-     * Test of setAreaDiCrescita method, of class plants.
-     */
-    @Test
-    public void testSetAreaDiCrescita() {
-    }
-
-    /**
-     * Test of setCaratteristicheGenerali method, of class plants.
-     */
-    @Test
-    public void testSetCaratteristicheGenerali() {
-    }
-
-    /**
-     * Test of setAnniPianta method, of class plants.
-     */
-    @Test
-    public void testSetAnniPianta() {
-    }
-
-    /**
-     * Test of toString method, of class plants.
-     */
-    @Test
-    public void testToString() {
-    }
-    
+    // Aggiungi altri test per gli altri metodi della classe Plants
 }
